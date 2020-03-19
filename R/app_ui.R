@@ -10,7 +10,16 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # List the first level UI elements here 
     fluidPage(
-      h1("shinySPC")
+      sidebarLayout(
+        sidebarPanel(
+          h1("shinySPC"),
+          mod_load_data_ui("load_data_ui_1")
+        ),
+        mainPanel(
+          h2("SPC"),
+          mod_draw_graph_ui("draw_graph_ui_1")
+        )
+      )
     )
   )
 }
