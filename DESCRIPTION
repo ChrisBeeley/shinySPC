@@ -26,3 +26,5 @@ LazyData: true
 RoxygenNote: 7.0.2
 Suggests: 
     testthat
+URL: https://github.com/ChrisBeeley/shinySPC
+BugReports: https://github.com/ChrisBeeley/shinySPC/issues
