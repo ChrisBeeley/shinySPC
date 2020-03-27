@@ -20,6 +20,8 @@ mod_draw_graph_ui <- function(id){
 mod_draw_graph_server <- function(input, output, session, react){
   ns <- session$ns
   
+  # look at column selection -> to THREE columns- time, measure, and small multiple
+  
   output$showData <- renderPlot({
     
     df <- react()

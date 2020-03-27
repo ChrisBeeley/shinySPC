@@ -24,7 +24,14 @@ mod_load_data_server <- function(input, output, session){
     req(input$file)
   })
 
+  # reactive({
+  #   readr::read_csv(file_path()$datapath)
+  # })
+  
   reactive({
-    readr::read_csv(file_path()$datapath)
+    clean_data(file_path()$datapath)
   })
+  
 }
+
+
