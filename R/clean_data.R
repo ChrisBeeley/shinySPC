@@ -1,14 +1,10 @@
 
-# Dates, with gaps and if Excel converted to a number
-# Strings?
-# 
-# THEN
-# 
 # Look at type of columns
-# 
+# Strings?
 # THEN
+# Dates, with gaps and if Excel converted to a number
 
-# start with a filepath send from the reactive load_data module
+# file_path <- "tests/testthat/test_files/upload_example.csv"
 
 clean_data <- function(file_path, skip = 0, col_names = TRUE){
   
@@ -40,8 +36,5 @@ clean_data <- function(file_path, skip = 0, col_names = TRUE){
   }
 }
 
-# clean_data(file_path)
+# clean_data(file_path, skip = 1, col_names = c("Gap time", "Time", "Date"))
 
-# # this is a later example
-# 
-# file_path_n <- "example_data/weekly_deaths.xls"

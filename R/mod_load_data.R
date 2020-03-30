@@ -10,10 +10,11 @@
 mod_load_data_ui <- function(id){
   ns <- NS(id)
   tagList(
-    fileInput(ns("file"), "Upload data")
+    fileInput(ns("file"), "Upload data"),
+    uiOutput(ns("colTypes"))
   )
 }
-    
+
 #' load_data Server Function
 #'
 #' @noRd 
@@ -23,14 +24,26 @@ mod_load_data_server <- function(input, output, session){
   file_path <- reactive({
     req(input$file)
   })
-
-  # reactive({
-  #   readr::read_csv(file_path()$datapath)
-  # })
   
-  reactive({
+  spreadsheet <- reactive({
     clean_data(file_path()$datapath)
   })
+  
+  list(
+    data = reactive(spreadsheet()),
+    interface = reactive(
+      renderUI({
+        textInput(session$ns("firstInput"), label = "Hello", value = "")
+      })
+    )
+  )
+  
+  
+  # col_types <- purrr::map_chr(spreadsheet(), class)
+  
+  # purrr::map(session$ns(col_types), ~ textInput(.x, NULL))
+  
+  # textInput(inputId = session$ns("firstInput"), label = "Hello", value = "")
   
 }
 
