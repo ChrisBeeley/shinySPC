@@ -23,10 +23,12 @@ mod_load_data_server <- function(input, output, session){
   
   output$colTypes <- renderUI({
     
-    col_types <- purrr::map_chr(spreadsheet(), class)
-
-    purrr::map(session$ns(col_types), ~ selectInput(.x, paste(.x, 1), 
-                                                    choices = c("Numeric", "Date", "Character")))
+    purrr::map(spreadsheet(), function(x){
+      
+      selectInput(session$ns(names(x)), names(x), 
+                  choices = c("numeric", "date", "character", "logical"), 
+                  selected = class(x))
+    })
   })
 
   file_path <- reactive({
@@ -34,7 +36,7 @@ mod_load_data_server <- function(input, output, session){
   })
 
   spreadsheet <- reactive({
-    clean_data(file_path()$datapath)
+    clean_data(file_path()$datapath, col_types = input$colTypes)
   })
   
   reactive({

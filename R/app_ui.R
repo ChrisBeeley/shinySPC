@@ -16,8 +16,13 @@ app_ui <- function(request) {
           mod_load_data_ui("load_data_ui_1")
         ),
         mainPanel(
-          h2("SPC"),
-          mod_draw_graph_ui("draw_graph_ui_1")
+          tabsetPanel(
+            tabPanel("Preview data",
+                     mod_show_data_ui("show_data_ui_1")),
+            tabPanel("SPC", 
+                     mod_draw_graph_ui("draw_graph_ui_1")
+            )
+          )
         )
       )
     )
@@ -37,7 +42,7 @@ golem_add_external_resources <- function(){
   add_resource_path(
     'www', app_sys('app/www')
   )
- 
+  
   tags$head(
     favicon(),
     bundle_resources(

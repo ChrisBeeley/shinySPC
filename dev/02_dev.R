@@ -21,9 +21,7 @@ usethis::use_package("qicharts2")
 ## Create a module infrastructure in R/
 golem::add_module(name = "load_data") # Name of the module
 ### TO ADD
-# golem::add_module(name = "filter_data") # Name of the module
-golem::add_module(name = "draw_graph") # Name of the module
-golem::add_module(name = "test") # Name of the module
+golem::add_module(name = "show_data") # Name of the module
 
 ## Add helper functions ----
 ## Creates ftc_* and utils_*

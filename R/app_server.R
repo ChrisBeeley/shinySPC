@@ -11,4 +11,6 @@ app_server <- function(input, output, session) {
 
   callModule(mod_draw_graph_server, "draw_graph_ui_1", react = res)
   
+  callModule(mod_show_data_server, "show_data_ui_1", react = res)
+  
 }

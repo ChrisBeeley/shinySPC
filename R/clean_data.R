@@ -6,7 +6,7 @@
 
 # file_path <- "tests/testthat/test_files/upload_example.csv"
 
-clean_data <- function(file_path, skip = 0, col_names = TRUE){
+clean_data <- function(file_path, skip = 0, col_names = TRUE, col_types = NULL){
   
   extension <- tools::file_ext(file_path)
   
@@ -17,7 +17,7 @@ clean_data <- function(file_path, skip = 0, col_names = TRUE){
   
   if(extension == "csv"){
     
-    return(readr::read_csv(file_path, skip = skip, col_names = col_names))
+    return(readr::read_csv(file_path, skip = skip, col_names = col_names, col_types = col_types))
   }
   
   if(extension == "xls"){
