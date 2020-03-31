@@ -25,4 +25,9 @@ test_that("Row skipping works", {
 
 test_that("col_names works", {
   expect_equal(clean_data("test_files/upload_example_no_header.csv", col_names = FALSE)[[1, 1]], 1)
+  # specifying three names when 5 exist throws a warning
+  expect_warning(out <- ncol(clean_data("test_files/upload_example.csv", skip = 1, 
+                                   col_names = c("Gap time", "Time", "Date"))))
+  # specifying three names when 5 exist returns three names, not five
+  expect_equal(out, 3)
 })
