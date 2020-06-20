@@ -24,8 +24,6 @@ mod_show_data_server <- function(input, output, session, react){
     
     df <- react()
 
-    golem::cat_dev(str(df))
-
     DT::datatable(df, rownames = FALSE)
   })
 }
