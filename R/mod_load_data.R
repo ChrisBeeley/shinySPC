@@ -10,7 +10,7 @@
 mod_load_data_ui <- function(id){
   ns <- NS(id)
   tagList(
-    fileInput(ns("file"), "Upload data"),
+    fileInput(ns("file"), "Upload data- .csv only"),
     uiOutput(ns("colTypes")),
     selectInput(ns("dateFormat"), "Date format",
                 choices = c("DD-MM-YYYY" = "%d-%m-%Y", 

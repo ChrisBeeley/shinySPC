@@ -18,7 +18,13 @@ Imports:
     readxl,
     dplyr,
     runcharter,
-    readr
+    readr,
+    pkgload,
+    magrittr,
+    vctrs,
+    zeallot,
+    pillar,
+    rlang
 Remotes: 
     johnmackintosh/runcharter
 Encoding: UTF-8

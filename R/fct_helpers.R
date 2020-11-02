@@ -9,6 +9,11 @@ class_to_reader <- function(read_type, x){
     
     return(paste(substr(x, 1, 1), collapse = ""))
   }
+  
+  if(read_type == "readxl"){
+    
+    return()
+  }
 }
 
 # class_to_reader(read_type = "readr", x)
